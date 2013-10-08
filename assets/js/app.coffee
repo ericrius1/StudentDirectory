@@ -1,1 +1,1 @@
-window.directory = angular.module("directory", ["firebase", ])
+window.directory = angular.module("directory", ["firebase" ])

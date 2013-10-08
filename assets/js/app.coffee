@@ -1,0 +1,1 @@
+window.directory = angular.module("directory", ["firebase", ])

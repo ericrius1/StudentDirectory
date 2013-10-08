@@ -5,7 +5,7 @@ block content
   div(ng-controller="DirectoryController", ng-click="$event.preventDefault()", ng-cloak)
     | Search: 
     input(type="text", ng-model="searchText")
-    div(ng-repeat="alumnus in alumni | filter:searchText")
+    div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
       form.details(ng-hide="!showDetails")

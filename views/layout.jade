@@ -1,13 +1,13 @@
 !!! 5
-html(ng-app="directory")
+html
   head
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     != css('application')
-  body
-    .container: .row: .span4.offset4
+  body(ng-app="directory")
+    .container
       block content
 
     script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js')
     script(src='//cdn.firebase.com/v0/firebase.js')
     script(src='//cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js')
-    != js('application')
+    != js('controllers/directory')

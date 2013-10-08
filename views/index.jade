@@ -4,7 +4,8 @@ block content
   h1 Aloha Alluring Alumni!
   div(ng-controller="DirectoryController")
     div(ng-repeat="alumnus in alumni")
-      h2 {{alumnus.firstname}}  {{alumnus.lastname}}
+      h2 
+        a(href='#', ng-click="active = $index") {{alumnus.firstname}}  {{alumnus.lastname}}
       div {{alumnus.blog}}
       div {{alumnus.cohort}}
       div {{alumnus.company}}

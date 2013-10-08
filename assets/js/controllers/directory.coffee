@@ -2,4 +2,5 @@ angular.module("directory", ["firebase"]).controller "DirectoryController", ["$s
   ($scope, angularFire) ->
     ref = new Firebase("https://hrdir.firebaseio.com/alumni")
     angularFire ref, $scope, "alumni"
+
   ]

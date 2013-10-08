@@ -10,6 +10,7 @@ window.directory.filter "alumnusfilter", () ->
     return input  unless query
     result = []
     angular.forEach input, (alumnus) ->
-      result.push alumnus  if compareStr(alumnus.firstname, query)
+      result.push alumnus if compareStr(alumnus.firstname, query) or compareStr(alumnus.lastname, query)
+
 
     result

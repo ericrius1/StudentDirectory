@@ -1,0 +1,11 @@
+!!! 5
+html(ng-app)
+  head
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    != css('application')
+  body
+    .container: .row: .span4.offset4
+      block content
+
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js')
+    != js('application')

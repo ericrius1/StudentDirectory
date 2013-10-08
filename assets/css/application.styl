@@ -3,8 +3,31 @@
   color grey
 
 .details
-  position: relative;
+  position relative
 
 .detail
-   position: absolute;
-   left: 70px;
+   position  absolute
+   left  70px
+
+
+
+.details.ng-hide-add,
+.details.ng-hide-remove 
+  -webkit-transition 0.5s linear all
+  -moz-transition 0.5s linear all
+  -o-transition 0.5s linear all
+  transition 0.5s linear all
+  display block!important
+
+.details.ng-hide-remove
+  opacity 0
+  color red
+
+.details.ng-hide-remove.ng-hide-remove-active 
+  opacity 1
+
+.details.ng-hide-add 
+  opacity 1
+
+.details.ng-hide-add.ng-hide-add-active 
+  opacity 0

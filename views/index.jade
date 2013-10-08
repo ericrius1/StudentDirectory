@@ -6,7 +6,7 @@ block content
     div(ng-repeat="alumnus in alumni")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
-      form.details(ng-show="showDetails")
+      form.details(ng-hide="!showDetails")
         | Blog: 
         input.detail(type="text",ng-model="alumnus.blog", placeholder="{{alumnus.blog}}")br
         br

@@ -3,7 +3,9 @@ extends layout
 block content
   h1 Aloha Alluring Alumni!
   div(ng-controller="DirectoryController", ng-click="$event.preventDefault()", ng-cloak)
-    div(ng-repeat="alumnus in alumni")
+    | Search: 
+    input(type="text", ng-model="searchText")
+    div(ng-repeat="alumnus in alumni | filter:searchText")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
       form.details(ng-hide="!showDetails")

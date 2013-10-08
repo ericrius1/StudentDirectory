@@ -6,10 +6,17 @@ block content
     div(ng-repeat="alumnus in alumni")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
-      .alumnusDetails(ng-show="showDetails")
-        div blog: {{alumnus.blog }}
-        div {{alumnus.cohort}}
-        div {{alumnus.company}}
-        div {{alumnus.photo}}
-        div {{alumnus.website}}
+      form.details(ng-show="showDetails")
+        | Blog: 
+        input.detail(type="text",ng-model="alumnus.blog", placeholder="{{alumnus.blog}}")br
+        br
+        | Cohort:
+        input.detail(type="text",ng-model="alumnus.cohort", placeholder="{{alumnus.cohort}}")br
+        br
+        | Company:
+        input.detail(type="text",ng-model="alumnus.company", placeholder="{{alumnus.company}}")br
+        br
+        |Website:
+        input.detail(type="text",ng-model="alumnus.website", placeholder="{{alumnus.website}}")br
+
    

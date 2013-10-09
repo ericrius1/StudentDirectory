@@ -12,6 +12,6 @@ directory.controller "DirectoryController", ["$scope", "angularFire", "angularFi
       angularFireAuth.logout();
 
     $scope.$on "angularFireAuth:login", (evt, user)->
-      $scope.username = user.username;
+      $scope.user = user.username;
 
   ]

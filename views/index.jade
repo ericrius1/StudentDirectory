@@ -2,30 +2,40 @@ extends layout
 
 block content
   h1 Aloha Alluring Alumni!
-  span(ng-show='user')
-    | {{user.name}} 
+  div(ng-show='user')
     button.btn.btn-warning(ng-click="logout()") Logout
+    h2 {{user}}
+    form.details
+      | Blog: 
+      input.detail(type="text",ng-model="user.blog", placeholder="{{user.blog}}")br
+      br
+      | Cohort:
+      input.detail(type="text",ng-model="user.cohort", placeholder="{{user.cohort}}")br
+      br
+      | Company:
+      input.detail(type="text",ng-model="user.company", placeholder="{{user.company}}")br
+      br
+      |Website:
+      input.detail(type="text",ng-model="user.website", placeholder="{{user.website}}")br
   span(ng-hide='user')
     button.btn.btn-primary(ng-click='login()') Github Login
 
-  div {{count}}
-  div(ng-click="$event.preventDefault()", ng-cloak)
-    | Search: 
-    input(type="text", ng-model="searchText")
+  hr.divider
+
+  .alumnus(ng-click="$event.preventDefault()", ng-cloak)
+    .search Search:
+      input.searchBox(type="text", ng-model="searchText")
     div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
       .details(ng-hide="!showDetails", ng-disabled="5==5")
-        | Blog: 
-        input.detail(type="text",ng-model="alumnus.blog", placeholder="{{alumnus.blog}}")br
+        p Blog: {{alumnus.blog}}
         br
-        | Cohort:
-        input.detail(type="text",ng-model="alumnus.cohort", placeholder="{{alumnus.cohort}}")br
+        p Cohort: {{alumnus.cohort}}
         br
-        | Company:
-        input.detail(type="text",ng-model="alumnus.company", placeholder="{{alumnus.company}}")br
+        p Company: {{alumnus.company}}
         br
-        |Website:
-        input.detail(type="text",ng-model="alumnus.website", placeholder="{{alumnus.website}}")br
+        p Website: {{alumnus.website}}
+        br
 
-   
+  

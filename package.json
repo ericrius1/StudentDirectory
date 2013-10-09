@@ -1,5 +1,5 @@
 {
-  "name": "AngularJsForHipsters",
+  "name": "HRAlumniDirectory",
   "version": "0.0.1",
   "dependencies": {
     "coffee-script": "~1.4.0",
@@ -7,5 +7,9 @@
     "express": "~3.0.6",
     "jade": "~0.28.1",
     "stylus": "~0.32.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }

@@ -9,5 +9,5 @@ app.set 'view engine', 'jade' # Set the template engine
 app.get '/', (req, res) ->
   res.render 'index'
 
-app.listen 8000, ->
+app.listen process.env.PORT or 5000, ->
   console.log 'Express server listening on port 8000.'

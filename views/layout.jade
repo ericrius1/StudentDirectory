@@ -4,7 +4,7 @@ html
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     != css('application')
   body(ng-app="directory")
-    .container
+    .container(ng-controller="DirectoryController")
       block content
 
     script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js')

@@ -2,7 +2,14 @@ extends layout
 
 block content
   h1 Aloha Alluring Alumni!
-  div(ng-controller="DirectoryController", ng-click="$event.preventDefault()", ng-cloak)
+  span(ng-show='user')
+    | {{user.name}} |
+    button.btn.btn-warning(ng-click="logout()") Logout
+  span(ng-hide='user')
+    button.btn.btn-primary(ng-click='login()') Github Login
+
+  div {{count}}
+  div(ng-click="$event.preventDefault()", ng-cloak)
     | Search: 
     input(type="text", ng-model="searchText")
     div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")

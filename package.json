@@ -1,6 +1,6 @@
 {
   "name": "HRAlumniDirectory",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "dependencies": {
     "coffee-script": "~1.4.0",
     "connect-assets": "~2.3.3",

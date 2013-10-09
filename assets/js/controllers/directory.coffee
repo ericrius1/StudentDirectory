@@ -8,5 +8,10 @@ directory.controller "DirectoryController", ["$scope", "angularFire", "angularFi
     $scope.login = ()->
       angularFireAuth.login('github')
 
+    $scope.logout = ()->
+      angularFireAuth.logout();
+
+    $scope.$on "angularFireAuth:login", (evt, user)->
+      $scope.username = user.username;
 
   ]

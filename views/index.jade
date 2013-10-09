@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Aloha Alluring Alumni!
   span(ng-show='user')
-    | {{user.name}} |
+    | {{user.name}} 
     button.btn.btn-warning(ng-click="logout()") Logout
   span(ng-hide='user')
     button.btn.btn-primary(ng-click='login()') Github Login
@@ -15,7 +15,7 @@ block content
     div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
-      form.details(ng-hide="!showDetails")
+      .details(ng-hide="!showDetails", ng-disabled="5==5")
         | Blog: 
         input.detail(type="text",ng-model="alumnus.blog", placeholder="{{alumnus.blog}}")br
         br

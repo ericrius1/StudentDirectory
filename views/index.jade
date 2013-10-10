@@ -8,26 +8,26 @@ block content
     h2 {{user.username}}
     form.details
       | Blog: 
-      input.detail(type="text",ng-model="user.blog", placeholder="{{user.blog}}")br
+      input.detail(type="text",ng-model="me.blog", placeholder="{{me.blog}}")br
       | Cohort:
-      input.detail(type="text",ng-model="user.cohort", placeholder="{{user.cohort}}")br
+      input.detail(type="text",ng-model="me.cohort", placeholder="{{me.cohort}}")br
       br
       | Company:
-      input.detail(type="text",ng-model="user.company", placeholder="{{user.company}}")br
+      input.detail(type="text",ng-model="me.company", placeholder="{{me.company}}")br
       br
       |Website:
-      input.detail(type="text",ng-model="user.website", placeholder="{{user.website}}")br
+      input.detail(type="text",ng-model="me.website", placeholder="{{me.website}}")br
       | Job Title:
-      input.detail(type="text",ng-model="user.jobtitle", placeholder="{{user.jobtitle}}")br
+      input.detail(type="text",ng-model="me.jobtitle", placeholder="{{me.jobtitle}}")br
       br
       | Linked In:
-      input.detail(type="text",ng-model="user.linkedin", placeholder="{{user.linkedin}}")br
+      input.detail(type="text",ng-model="me.linkedin", placeholder="{{me.linkedin}}")br
       br
       | Twitter:
-      input.detail(type="text",ng-model="user.twitter", placeholder="{{user.twitter}}")br
+      input.detail(type="text",ng-model="me.twitter", placeholder="{{me.twitter}}")br
       br
       | Quora:
-      input.detail(type="text",ng-model="user.quora", placeholder="{{user.quora}}")br
+      input.detail(type="text",ng-model="me.quora", placeholder="{{me.quora}}")br
       br
   span(ng-hide='user')
     button.btn.btn-primary(ng-click='login()') Github Login

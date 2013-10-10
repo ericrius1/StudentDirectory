@@ -4,14 +4,18 @@ directory.controller "DirectoryController", ["$scope", "angularFire", "angularFi
     angularFireAuth.initialize ref,
       scope: $scope
       name: "user"
-    angularFire ref, $scope, "alumni"
+
     $scope.login = ()->
       angularFireAuth.login('github')
+
 
     $scope.logout = ()->
       angularFireAuth.logout();
 
     $scope.$on "angularFireAuth:login", (evt, user)->
-      $scope.user = user.username;
+      angularFire ref, $scope, "alumni"
+      i = 0
+
+      #grab fields
 
   ]

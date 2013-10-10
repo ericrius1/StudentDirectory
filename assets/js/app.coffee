@@ -1,1 +1,1 @@
-window.directory = angular.module("directory", ["ngRoute", "firebase"])
+window.directory = angular.module("directory", ["ngRoute", "ngAnimate", "firebase"])

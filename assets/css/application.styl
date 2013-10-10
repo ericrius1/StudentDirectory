@@ -2,14 +2,24 @@
   text-decoration line-through
   color grey
 
-.details
-  position relative
+.details.ng-hide-remove {
+  opacity: 0;
+  display: block !important;
+  transition: opacity 1s;
+}
+
+.details.ng-hide-remove-active {
+  opacity 1.0
+
+}
 .detail
-   position  absolute
    left  70px
+   font-weight bold
 
 .search
-  position: relative
+  position relative
+  font-size 1.3em
+  padding-bottom 15px
 
 .searchBox
   position: absolute
@@ -25,11 +35,12 @@
 hr.divider 
     padding: 0;
     border: none;
-    border-top: medium double #333;
-    color: #333;
+    border-top medium double #B5B5B5;
+    color: #1B50E0;
     text-align: center
 
 hr.divider:after 
+    font-family Fantasy
     content "HR"
     display inline-block
     position relative
@@ -39,23 +50,4 @@ hr.divider:after
     background white
 
 
-.details.ng-hide-add,
-.details.ng-hide-remove 
-  -webkit-transition 0.5s linear all
-  -moz-transition 0.5s linear all
-  -o-transition 0.5s linear all
-  transition 0.5s linear all
-  display block!important
 
-.details.ng-hide-remove
-  opacity 0
-  color red
-
-.details.ng-hide-remove.ng-hide-remove-active 
-  opacity 1
-
-.details.ng-hide-add 
-  opacity 1
-
-.details.ng-hide-add.ng-hide-add-active 
-  opacity 0

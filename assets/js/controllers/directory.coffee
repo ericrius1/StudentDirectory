@@ -2,9 +2,12 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
   ($scope, angularFireCollection, angularFireAuth) ->
     ref = new Firebase("https://hrdir.firebaseio.com/alumni")
     $scope.alumni = angularFireCollection(ref, (data)->
-      $scope.me = data.val()
+      alumniTemp = data.val()
+      if $scope.user?
+        for name, alumnus of alumniTemp
+          if $scope.user.username.toLowerCase() == name.toLowerCase()
+            $scope.me =  alumnus     
     )
-    $scope.me = {}
     angularFireAuth.initialize ref,
       scope: $scope
       name: "user"
@@ -17,7 +20,12 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
 
     $scope.$on "angularFireAuth:login", (evt, user)->
       $scope.user = user
-      $scope.findMe()
+
+    $scope.$watch ((scope)->
+      scope.alumni.length
+    ),(length)->
+      if length > 0
+        $scope.findMe(length-1) 
     
     $scope.saveInfo = ()->
       user = $scope.alumni[$scope.myIndex]
@@ -25,11 +33,10 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
           user[key] = value
       $scope.alumni.update(user)
 
-    $scope.findMe = ()->
+    $scope.findMe = (index)->
       #Go through each alumnus and compare their name to user
-      for alumnus in $scope.alumni
-        if $scope.user.username.toLowerCase() == alumnus.$id.toLowerCase()
-          $scope.myIndex = alumnus.$index
+        if $scope.user.username.toLowerCase() == $scope.alumni[index].$id.toLowerCase()
+          $scope.myIndex = index;
 
   
   ]

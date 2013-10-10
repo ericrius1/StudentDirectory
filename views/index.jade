@@ -6,7 +6,8 @@ block content
   div(ng-show='user && hideForm == false', ng-cloak, ng-init="hideForm = false")
     button.btn.btn-warning(ng-click="logout()") Logout
     h2 {{user.username}}
-    form.details(ng-submit="saveInfo()")
+    p.text-error(ng-show="!myIndex", ng-cloak) You're not an alumni!! (Or at least your not registered in database)
+    form.details(ng-submit="saveInfo()", ng-show="myIndex")
       | Blog: 
       input.detail(type="text",ng-model="me.blog", placeholder="{{me.blog}}")br
       br

@@ -20,11 +20,14 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
 
     $scope.$on "angularFireAuth:login", (evt, user)->
       $scope.user = user
-      $scope.$watch ((scope)->
-        scope.alumni.length
-      ),(length)->
-        if length > 0
-          $scope.findMe(length-1) 
+      if $scope.alumni.length > 0
+        $scope.findAll()
+      else
+        $scope.$watch ((scope)->
+          scope.alumni.length
+        ),(length)->
+          if length > 0
+            $scope.findMe(length-1) 
     
     $scope.saveInfo = ()->
       user = $scope.alumni[$scope.myIndex]
@@ -37,5 +40,12 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
         if $scope.user.username.toLowerCase() == $scope.alumni[index].$id.toLowerCase()
           $scope.myIndex = index; 
 
-  
+    $scope.findAll = ()->
+      #Go through each alumnus and compare their name to user
+      for alumnus in $scope.alumni
+        if $scope.user.username.toLowerCase() == alumnus.$id.toLowerCase()
+          $scope.myIndex = alumnus.$index
+    
+
   ]
+  

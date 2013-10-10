@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Aloha Alluring Alumni!
   h3 Please login to edit your information
-  div(ng-show='user', ng-cloak)
+  div(ng-show='user && hideForm == false', ng-cloak, ng-init="hideForm = false")
     button.btn.btn-warning(ng-click="logout()") Logout
     h2 {{user.username}}
     form.details(ng-submit="saveInfo()")
@@ -31,7 +31,7 @@ block content
       | Quora:
       input.detail(type="text",ng-model="me.quora", placeholder="{{me.quora}}")br
       br
-      input.btn-primary(type="submit")
+      input.btn-primary(type="submit", ng-click='hideForm = true')
   span(ng-hide='user')
     button.btn.btn-primary(ng-click='login()') Github Login
 

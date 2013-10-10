@@ -3,9 +3,9 @@ extends layout
 block content
   h1 Aloha Alluring Alumni!
   h3 Please login to edit your information
-  div(ng-show='user')
+  div(ng-show='user', ng-cloak)
     button.btn.btn-warning(ng-click="logout()") Logout
-    h2 {{user.username}}
+    h2 {{me.username}}
     form.details
       | Blog: 
       input.detail(type="text",ng-model="me.blog", placeholder="{{me.blog}}")br

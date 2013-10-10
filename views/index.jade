@@ -5,8 +5,8 @@ block content
   h3 Please login to edit your information
   div(ng-show='user', ng-cloak)
     button.btn.btn-warning(ng-click="logout()") Logout
-    h2 {{me.username}}
-    form.details
+    h2 {{user.username}}
+    form.details(ng-submit="saveInfo()")
       | Blog: 
       input.detail(type="text",ng-model="me.blog", placeholder="{{me.blog}}")br
       | Cohort:
@@ -29,6 +29,7 @@ block content
       | Quora:
       input.detail(type="text",ng-model="me.quora", placeholder="{{me.quora}}")br
       br
+      input.btn-primary(type="submit")
   span(ng-hide='user')
     button.btn.btn-primary(ng-click='login()') Github Login
 

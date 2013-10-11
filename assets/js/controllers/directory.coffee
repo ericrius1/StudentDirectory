@@ -2,11 +2,9 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
   ($scope, angularFireCollection, angularFireAuth) ->
     ref = new Firebase("https://hrdir.firebaseio.com/alumni")
     $scope.alumni = angularFireCollection(ref, (data)->
-      alumniTemp = data.val()
+      $scope.alumniTemp = data.val()
       if $scope.user?
-        for name, alumnus of alumniTemp
-          if $scope.user.username.toLowerCase() == name.toLowerCase()
-            $scope.me =  alumnus     
+        createMe()
     )
     angularFireAuth.initialize ref,
       scope: $scope
@@ -16,7 +14,7 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
       angularFireAuth.login('github')
         
     $scope.logout = ()->
-      angularFireAuth.logout();
+      angularFireAuth.logout('github');
 
     $scope.$on "angularFireAuth:login", (evt, user)->
       $scope.user = user
@@ -39,12 +37,20 @@ directory.controller "DirectoryController", ["$scope", "angularFireCollection", 
       #Go through each alumnus and compare their name to user
         if $scope.user.username.toLowerCase() == $scope.alumni[index].$id.toLowerCase()
           $scope.myIndex = index; 
+          createMe()
 
     $scope.findAll = ()->
       #Go through each alumnus and compare their name to user
       for alumnus in $scope.alumni
         if $scope.user.username.toLowerCase() == alumnus.$id.toLowerCase()
           $scope.myIndex = alumnus.$index
+          createMe()
+
+    createMe = ()->
+      for name, alumnus of $scope.alumniTemp
+          if $scope.user.username.toLowerCase() == name.toLowerCase()
+            $scope.me =  alumnus   
+            $scope.me.username = $scope.user.username
     
 
   ]

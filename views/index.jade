@@ -2,35 +2,41 @@ extends layout
 
 block content
   h1 Aloha Alluring Alumni!
-  h3 Please login to edit your information
-  div(ng-show='user && hideForm == false', ng-cloak, ng-init="hideForm = false")
+  div(ng-show='user', ng-cloak, ng-init="hideForm = false")
     button.btn.btn-warning(ng-click="logout()") Logout
-    h2 {{user.username}}
-    p.text-error(ng-show="!myIndex", ng-cloak) You're not an alumni!! (Or at least your not registered in database)
-    form.details(ng-submit="saveInfo()", ng-show="myIndex")
-      | Blog: 
-      input.detail(type="text",ng-model="me.blog", placeholder="Blog URL" )br
-      br
-      | Company:
-      input.detail(type="text",ng-model="me.company", placeholder='Company')br
-      br
-      |Website:
-      input.detail(type="text",ng-model="me.website" , placeholder='www.example.com')br
-      br
-      | Job Title:
-      input.detail(type="text",ng-model="me.jobtitle", placeholder='Assistant to the Regional Manager')br
-      br
-      | Linked In:
-      input.detail(type="text",ng-model="me.linkedin", placeholder='LinkedIn URL')br
-      br
-      | Twitter:
-      input.detail(type="text",ng-model="me.twitter", placeholder='@handle')br
-      br
-      | Quora:
-      input.detail(type="text",ng-model="me.quora", placeholder='www.quora.com/username')br
-      br
-      input.btn-primary(type="submit", ng-click='hideForm = true')
-  span(ng-hide='user')
+    div(ng-show='hideForm == false')
+      h2 {{me.username}}
+      p.text-error(ng-show="!myIndex", ng-cloak) You're not an alumni!! (Or at least your not registered in database)
+      form.details(ng-submit="saveInfo()", ng-show="myIndex")
+        | Blog: 
+        input.detail(type="text",ng-model="me.blog", placeholder="Blog URL" )br
+        br
+        | Company:
+        input.detail(type="text",ng-model="me.company", placeholder='Company')br
+        br
+        |Website:
+        input.detail(type="text",ng-model="me.website" , placeholder='www.example.com')br
+        br
+        | Job Title:
+        input.detail(type="text",ng-model="me.jobtitle", placeholder='Assistant to the Regional Manager')br
+        br
+        | Linked In:
+        input.detail(type="text",ng-model="me.linkedin", placeholder='LinkedIn URL')br
+        br
+        | Twitter:
+        input.detail(type="text",ng-model="me.twitter", placeholder='@handle')br
+        br
+        | Quora:
+        input.detail(type="text",ng-model="me.quora", placeholder='www.quora.com/username')br
+        br
+        | Bio:
+        textarea.detail(ng-model="me.bio") Who are you, really?
+        br
+        br
+        br
+        input.btn-primary(type="submit", ng-click='hideForm = true')
+  div(ng-hide='user')
+    h3 Please login to edit your information
     button.btn.btn-primary(ng-click='login()') Github Login
 
   hr.divider
@@ -58,6 +64,7 @@ block content
         br
         p.detail Quora: {{alumnus.quora}}
         br
+        p.detail Bio: {{alumnus.bio}}
 
 
   

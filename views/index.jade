@@ -9,28 +9,25 @@ block content
     p.text-error(ng-show="!myIndex", ng-cloak) You're not an alumni!! (Or at least your not registered in database)
     form.details(ng-submit="saveInfo()", ng-show="myIndex")
       | Blog: 
-      input.detail(type="text",ng-model="me.blog", placeholder="{{me.blog}}")br
-      br
-      | Cohort:
-      input.detail(type="text",ng-model="me.cohort", placeholder="{{me.cohort}}")br
+      input.detail(type="text",ng-model="me.blog", placeholder="Blog URL" )br
       br
       | Company:
-      input.detail(type="text",ng-model="me.company", placeholder="{{me.company}}")br
+      input.detail(type="text",ng-model="me.company", placeholder='Company')br
       br
       |Website:
-      input.detail(type="text",ng-model="me.website", placeholder="{{me.website}}")br
+      input.detail(type="text",ng-model="me.website" , placeholder='www.example.com')br
       br
       | Job Title:
-      input.detail(type="text",ng-model="me.jobtitle", placeholder="{{me.jobtitle}}")br
+      input.detail(type="text",ng-model="me.jobtitle", placeholder='Assistant to the Regional Manager')br
       br
       | Linked In:
-      input.detail(type="text",ng-model="me.linkedin", placeholder="{{me.linkedin}}")br
+      input.detail(type="text",ng-model="me.linkedin", placeholder='LinkedIn URL')br
       br
       | Twitter:
-      input.detail(type="text",ng-model="me.twitter", placeholder="{{me.twitter}}")br
+      input.detail(type="text",ng-model="me.twitter", placeholder='@handle')br
       br
       | Quora:
-      input.detail(type="text",ng-model="me.quora", placeholder="{{me.quora}}")br
+      input.detail(type="text",ng-model="me.quora", placeholder='www.quora.com/username')br
       br
       input.btn-primary(type="submit", ng-click='hideForm = true')
   span(ng-hide='user')

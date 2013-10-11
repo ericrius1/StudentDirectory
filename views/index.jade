@@ -31,13 +31,6 @@ block content
         br
         | Bio:
         textarea.detail(ng-model="me.bio") Who are you, really?
-        p
-        p
-        p
-        p
-        p
-        p
-        p
         input.btn-primary(type="submit", ng-click='hideForm = true')
   div(ng-hide='user')
     h3 Please login to edit your information
@@ -53,21 +46,13 @@ block content
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
       .details(ng-hide="!showDetails", ng-disabled="5==5")
         p.detail Blog: {{alumnus.blog}}
-        br
         p.detail Cohort: {{alumnus.cohort}}
-        br
         p.detail Company: {{alumnus.company}}
-        br
         p.detail Website: {{alumnus.website}}
-        br
         p.detail Job Title: {{alumnus.jobtitle}}
-        br
         p.detail Linked In: {{alumnus.linkedin}}
-        br
         p.detail Twitter: {{alumnus.twitter}}
-        br
         p.detail Quora: {{alumnus.quora}}
-        br
         p.detail Bio: {{alumnus.bio}}
 
 

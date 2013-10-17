@@ -38,13 +38,13 @@ block content
 
   hr.divider
 
-  .alumnus(ng-click="$event.preventDefault()", ng-cloak)
+  .alumnus(ng-click="$event.preventDefault()", ng-cloak ng-hide="admin == true")
     .search Search:
       input.searchBox(type="text", ng-model="searchText")
     div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")
       h3
         a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
-      .details(ng-hide="!showDetails", ng-disabled="5==5")
+      .details(ng-hide="!showDetails")
         p.detail Blog: {{alumnus.blog}}
         p.detail Cohort: {{alumnus.cohort}}
         p.detail Company: {{alumnus.company}}
@@ -54,6 +54,38 @@ block content
         p.detail Twitter: {{alumnus.twitter}}
         p.detail Quora: {{alumnus.quora}}
         p.detail Bio: {{alumnus.bio}}
+        br
+        br
+      br
 
+  .admin( ng-show="admin == true") I AM ADMIN
+     div(ng-repeat="alumnus in alumni | alumnusfilter:searchText")
+      h3
+        a(href='#', ng-click="showDetails = !showDetails") {{alumnus.firstname}}  {{alumnus.lastname }}
+      form.details(ng-show="hideAdminForm == false",ng-submit="saveAdminInfo($index, alumnus)", ng-hide="!showDetails")
+        | Blog: 
+        input.detail(type="text",ng-model="alumnus.blog", placeholder="Blog URL" )br
+        br
+        | Company:
+        input.detail(type="text",ng-model="alumnus.company", placeholder='Company')br
+        br
+        |Website:
+        input.detail(type="text",ng-model="alumnus.website" , placeholder='www.example.com')br
+        br
+        | Job Title:
+        input.detail(type="text",ng-model="alumnus.jobtitle", placeholder='Assistant to the Regional Manager')br
+        br
+        | Linked In:
+        input.detail(type="text",ng-model="alumnus.linkedin", placeholder='LinkedIn URL')br
+        br
+        | Twitter:
+        input.detail(type="text",ng-model="alumnus.twitter", placeholder='@handle')br
+        br
+        | Quora:
+        input.detail(type="text",ng-model="alumnus.quora", placeholder='www.quora.com/username')br
+        br
+        | Bio:
+        textarea.detail(ng-model="alumnus.bio") Who are you, really?
+        input.btn-primary(type="submit", ng-click='hideAdminForm = true')
 
   
